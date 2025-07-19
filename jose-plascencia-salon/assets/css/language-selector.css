@@ -1,0 +1,42 @@
+.language-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    gap: 10px;
+}
+
+.language-btn {
+    background: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.language-btn:hover {
+    background: var(--secondary-orange);
+    transform: translateY(-2px);
+}
+
+.language-btn.active {
+    background: var(--primary-green);
+}
+
+@media (max-width: 768px) {
+    .language-selector {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .language-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}

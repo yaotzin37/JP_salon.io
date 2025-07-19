@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Plascencia Salón | Belleza Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/floating-social.css">
+    <link rel="stylesheet" href="../assets/css/language-selector.css">
+    <style>
+        :root {
+            --primary-green: #2c5f2d;
+            --secondary-green: #3d8b40;
+            --light-green: #e6f4e6;
+            --primary-orange: #ff7f41;
+            --secondary-orange: #ff9d6f;
+            --light-orange: #fff0e9;
+            --dark: #333333;
+            --light: #f8f9fa;
+            --gold: #d4af37;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--primary-orange);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-orange);
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-orange);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                          url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-green) 0%, transparent 50%, var(--primary-orange) 100%);
+            opacity: 0.4;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-orange);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-orange);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light-green);
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-green);
+            position: relative;
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-orange);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .service-icon {
+            background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 42px;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .service-content p {
+            color: var(--dark);
+            margin-bottom: 0;
+        }
+        
+        /* Hours Section */
+        .hours {
+            padding: 100px 0;
+            background-color: var(--light-orange);
+            position: relative;
+        }
+        
+        .hours-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .hours-table th, .hours-table td {
+            padding: 18px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .hours-table th {
+            background-color: var(--primary-orange);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .hours-table tr:nth-child(even) {
+            background-color: rgba(255, 127, 65, 0.05);
+        }
+        
+        .closed {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--light-green);
+            position: relative;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            padding: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h3 {
+            color: var(--primary-green);
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+        
+        .contact-details p {
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(to right, var(--primary-orange), var(--secondary-orange));
+        }
+        
+        .map {
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Location Banner */
+        .location-banner {
+            background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .location-banner p {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+        
+        .location-banner i {
+            margin-right: 10px;
+            color: var(--primary-orange);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #1a3e1b, #2c5f2d);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .footer-col h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-orange);
+        }
+        
+        .footer-col p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-col ul li:before {
+            content: "•";
+            color: var(--primary-orange);
+            margin-right: 8px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .footer-container {
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .services, .hours, .contact {
+                padding: 70px 0;
+            }
+        }
+    </style>
+    <script src="../assets/js/translations.js"></script>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="language-btn" onclick="changeLanguage('es')" id="es-btn">ES</button>
+        <button class="language-btn" onclick="changeLanguage('en')" id="en-btn">EN</button>
+    </div>
+    
+    <!-- Header -->
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-scissors"></i>
+                José Plascencia Salón
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio" data-translate="nav-home">Inicio</a></li>
+                    <li><a href="#servicios" data-translate="nav-services">Servicios</a></li>
+                    <li><a href="#horario" data-translate="nav-schedule">Horario</a></li>
+                    <li><a href="#contacto" data-translate="nav-contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Location Banner -->
+    <div class="location-banner">
+        <div class="container">
+            <p><i class="fas fa-map-marker-alt"></i> 63720, Playa Hermosa, 63720 La Peñita de Jaltemba, Nay.</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1 data-translate="hero-title">Transformando Estilos, Creando Confianza</h1>
+            <p data-translate="hero-subtitle">Servicios profesionales de belleza y barbería en un ambiente de lujo y comodidad</p>
+            <a href="#contacto" class="btn" data-translate="hero-cta">Reserva tu cita ahora</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <h2 class="section-title" data-translate="services-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="haircut-title">Cortes de Cabello</h3>
+                        <p data-translate="haircut-desc">Estilos modernos para damas y caballeros, cortes personalizados para cada tipo de rostro y personalidad.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="color-title">Colorimetría</h3>
+                        <p data-translate="color-desc">Técnicas profesionales de coloración para lograr el tono perfecto que realza tu belleza natural.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="treatment-title">Tratamientos Capilares</h3>
+                        <p data-translate="treatment-desc">Alaciados con keratina japonesa, permanentes, rizos y ondulados para cabello saludable y radiante.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-male"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="barber-title">Barbería Premium</h3>
+                        <p data-translate="barber-desc">Afeitado de precisión, acondicionamiento de barba, rasurado de cabeza y servicios exclusivos para caballero.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="nails-title">Manicura y Pedicura</h3>
+                        <p data-translate="nails-desc">Uñas de Felisa, esculturales y tratamientos profesionales para manos y pies impecables.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-translate="makeup-title">Maquillaje Social</h3>
+                        <p data-translate="makeup-desc">Maquillaje profesional para eventos especiales que realza tu belleza natural con un toque de glamour.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section class="hours" id="horario">
+        <div class="container">
+            <h2 class="section-title" data-translate="schedule-title">Horario de Atención</h2>
+            <div class="hours-container">
+                <table class="hours-table">
+                    <thead>
+                        <tr>
+                            <th data-translate="day">Día</th>
+                            <th data-translate="hours">Horario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-translate="monday">Lunes</td>
+                            <td>10:00 a.m. - 2:00 p.m.<br>4:00 p.m. - 9:00 p.m.</td>
+                        </tr>
+                        <tr>
+                            <td data-translate="tuesday">Martes</td>
+                            <td>10:00 a.m. - 2:00 p.m.<br>4:00 p.m. - 9:00 p.m.</td>
+                        </tr>
+                        <tr>
+                            <td data-translate="wednesday">Miércoles</td>
+                            <td class="closed" data-translate="closed">Cerrado</td>
+                        </tr>
+                        <tr>
+                            <td data-translate="thursday">Jueves</td>
+                            <td>10:00 a.m. - 2:00 p.m.<br>4:00 p.m. - 9:00 p.m.</td>
+                        </tr>
+                        <tr>
+                            <td data-translate="friday">Viernes</td>
+                            <td>10:00 a.m. - 2:00 p.m.<br>4:00 p.m. - 9:00 p.m.</td>
+                        </tr>
+                        <tr>
+                            <td data-translate="saturday">Sábado</td>
+                            <td>10:00 a.m. - 2:00 p.m.<br>4:00 p.m. - 9:00 p.m.</td>
+                        </tr>
+                        <tr>
+                            <td data-translate="sunday">Domingo</td>
+                            <td>3:00 p.m. - 9:00 p.m.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title" data-translate="contact-title">Contacto y Ubicación</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-translate="phone">Teléfono</h3>
+                            <p>33 3397 8443</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-translate="address">Dirección</h3>
+                            <p>63720, Playa Hermosa,<br>63720 La Peñita de Jaltemba, Nay.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-translate="bookings">Reservas</h3>
+                            <p data-translate="booking-text">Recomendamos reservar cita con anticipación para garantizar tu horario preferido.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-social-links">
+                        <a href="https://wa.me/526183012829" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/jp_salonn/" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1BBrirT18h/" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.899477366129!2d-103.36532212529842!3d20.673870299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae2a6c4b9f41%3A0x4d2c5f2c5c4b5e2d!2sJos%C3%A9%20Plascencia%20Sal%C3%B3n!5e0!3m2!1ses!2smx!4v1689876543210!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>José Plascencia Salón</h3>
+                    <p data-translate="footer-desc">Tu destino para servicios profesionales de belleza y barbería en La Peñita de Jaltemba. Transformamos tu estilo con pasión y experiencia.</p>
+                    <p data-translate="footer-experience">Con más de 10 años de experiencia, nos enorgullece ofrecer los mejores servicios con productos de alta calidad.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 data-translate="featured-services">Servicios Destacados</h3>
+                    <ul data-translate="services-list">
+                        <li>Cortes de Cabello para Dama y Caballero</li>
+                        <li>Colorimetría Profesional</li>
+                        <li>Alaciados con Keratina Japonesa</li>
+                        <li>Servicios de Barbería Premium</li>
+                        <li>Manicura y Pedicura</li>
+                        <li>Maquillaje Social para Eventos</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 data-translate="contact-info">Información de Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-translate="contact-address">63720, Playa Hermosa, La Peñita de Jaltemba, Nay.</span></p>
+                    <p><i class="fas fa-phone"></i> <span>33 3397 8443</span></p>
+                    <p><i class="fas fa-envelope"></i> contacto@joseplascenciasalon.com</p>
+                    <p><i class="fas fa-clock"></i> <span data-translate="opening-hours">Abierto de Lunes a Domingo</span></p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p data-translate="copyright">&copy; 2023 José Plascencia Salón. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
